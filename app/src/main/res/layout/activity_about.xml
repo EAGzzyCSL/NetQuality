@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/bkg_about_appbar" />
+                android:src="@drawable/ic_about_bg" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -42,6 +42,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="0dp"
         android:background="@color/colorPrimary"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -111,5 +112,6 @@
         android:src="@drawable/ic_github"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
+
 
 </android.support.design.widget.CoordinatorLayout>

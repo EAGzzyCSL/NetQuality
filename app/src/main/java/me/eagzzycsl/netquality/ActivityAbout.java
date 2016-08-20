@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 public class ActivityAbout extends ActivityToolbar implements View.OnClickListener {
     private FloatingActionButton fab;
