@@ -7,12 +7,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 
 public class ActivityAbout extends ActivityToolbar implements View.OnClickListener {
-    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
     }
 

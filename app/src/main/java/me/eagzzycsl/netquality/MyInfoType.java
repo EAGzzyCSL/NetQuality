@@ -1,6 +1,6 @@
 package me.eagzzycsl.netquality;
 
-public enum MyInfoType {
+enum MyInfoType {
     stamp("stamp", null),
     netType("net_type", "网络类型"),
     timeZone("time_zone", "时区"),

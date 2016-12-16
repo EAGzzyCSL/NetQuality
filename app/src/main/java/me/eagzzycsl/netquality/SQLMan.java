@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 
-public class SQLMan implements AboutDb {
+class SQLMan implements AboutDb {
     private static SQLiteDatabase myDb;
 
-    public SQLMan(Context context) {
+    private SQLMan(Context context) {
 
         myDb = new MySQLiteHelper(context, DB_NAME,
                 null, DB_VERSION).getReadableDatabase();
@@ -19,7 +19,7 @@ public class SQLMan implements AboutDb {
 
     private static SQLMan instance;
 
-    public static SQLMan getInstance() {
+    static SQLMan getInstance() {
         if (instance == null) {
             instance = new SQLMan(MyApplication.getContext());
         }
@@ -30,7 +30,7 @@ public class SQLMan implements AboutDb {
     private final static String Qs_readAll = "select " + MyInfoType.stamp.getKey() + " from " + TABLE_History.TABLE_NAME;
 
 
-    public ArrayList<DatumHis> readAll() {
+    ArrayList<DatumHis> readAll() {
         Cursor c = myDb.rawQuery(Qs_readAll, null);
         ArrayList<DatumHis> hisData = new ArrayList<>(c.getCount());
         final int stamp_id = c.getColumnIndex(MyInfoType.stamp.getKey());
@@ -45,7 +45,7 @@ public class SQLMan implements AboutDb {
 
     private final static String Qs_read = "select * from " + TABLE_History.TABLE_NAME + " where " + MyInfoType.stamp.getKey() + "=?";
 
-    public ArrayList<DatumInfo> read(String stamp) {
+    ArrayList<DatumInfo> read(String stamp) {
         Cursor c = myDb.rawQuery(Qs_read, new String[]{stamp});
         ArrayList<DatumInfo> netStates = new ArrayList<>(c.getCount());
 
@@ -61,7 +61,7 @@ public class SQLMan implements AboutDb {
         return netStates;
     }
 
-    public void insert(ArrayList<DatumInfo> netStates, String stamp) {
+    void insert(ArrayList<DatumInfo> netStates, String stamp) {
         if (netStates == null) {
             return;
         }

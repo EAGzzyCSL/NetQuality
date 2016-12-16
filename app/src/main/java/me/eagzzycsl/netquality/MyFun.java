@@ -16,19 +16,19 @@ import java.util.Calendar;
 import java.util.Enumeration;
 
 
-public class MyFun {
+class MyFun {
     private Context context;
     private final String NO = "无法获取或不存在";
 
-    public MyFun(Context context) {
+    MyFun(Context context) {
         this.context = context;
     }
 
-    public String getStamp() {
+    String getStamp() {
         return String.valueOf(System.currentTimeMillis());
     }
 
-    public String getNetType() {
+    String getNetType() {
         if (isWifi()) {
             return "WIFI";
         }
@@ -60,7 +60,7 @@ public class MyFun {
         }
     }
 
-    public String[] getTimeWithZone() {
+    String[] getTimeWithZone() {
         Calendar calendar = Calendar.getInstance();
         String timeZone = calendar.getTimeZone().getDisplayName();
         String date = android.text.format.DateFormat.format("yyyy-MM-dd", calendar).toString();
@@ -72,36 +72,36 @@ public class MyFun {
     }
 
 
-    public String getIMSI() {
+    String getIMSI() {
         String imsi = getTelephonyManger().getSubscriberId();
         return imsi == null ? NO : imsi;
     }
 
-    public String getIMEI() {
+    String getIMEI() {
         return getTelephonyManger().getDeviceId();
     }
 
-    public String getPhoneName() {
+    String getPhoneName() {
         return android.os.Build.MODEL;
     }
 
-    public String getOsVersion() {
+    String getOsVersion() {
         return String.valueOf(android.os.Build.VERSION.RELEASE);
     }
 
-    public String getOperator() {
+    String getOperator() {
         return getTelephonyManger().getNetworkOperatorName();
     }
 
-    public String getLongitude() {
+    String getLongitude() {
         return null;
     }
 
-    public String getLatitude() {
+    String getLatitude() {
         return null;
     }
 
-    public String getIp() {
+    String getIp() {
         if (isWifi()) {
             WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
             int ipAddress = wm.getConnectionInfo().getIpAddress();

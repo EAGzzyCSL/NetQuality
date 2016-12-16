@@ -6,19 +6,18 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public abstract class BaseAdapter<D extends BaseDatum> extends RecyclerView.Adapter<BaseAdapter.RecViewHolder> {
+abstract class BaseAdapter<D extends BaseDatum> extends RecyclerView.Adapter<BaseAdapter<D>.RecViewHolder<D>> {
     protected Context context;
-    protected ArrayList<D> dataArray;
+    private ArrayList<D> dataArray;
 
-    public BaseAdapter(Context context) {
+    BaseAdapter(Context context) {
         this.context = context;
     }
 
     @Override
-    public void onBindViewHolder(BaseAdapter.RecViewHolder holder, int position) {
+    public void onBindViewHolder(RecViewHolder<D> holder, int position) {
         holder.setContent(dataArray.get(position));
     }
-
 
     @Override
     public int getItemCount() {
@@ -27,16 +26,16 @@ public abstract class BaseAdapter<D extends BaseDatum> extends RecyclerView.Adap
 
     public abstract int getLayoutId();
 
-    public void setDataArray(ArrayList<D> dataArray) {
+    void setDataArray(ArrayList<D> dataArray) {
         this.dataArray = dataArray;
     }
 
-    public abstract class RecViewHolder extends RecyclerView.ViewHolder {
-        public RecViewHolder(View itemView) {
+    abstract class RecViewHolder<E extends BaseDatum> extends RecyclerView.ViewHolder {
+        RecViewHolder(View itemView) {
             super(itemView);
         }
 
-        public abstract void setContent(D data);
+        public abstract void setContent(E data);
     }
 
 }

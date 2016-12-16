@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class AdapterInfo extends BaseAdapter<DatumInfo> {
-    public AdapterInfo(Context context) {
+class AdapterInfo extends BaseAdapter<DatumInfo> {
+    AdapterInfo(Context context) {
         super(context);
 
     }
@@ -22,11 +22,11 @@ public class AdapterInfo extends BaseAdapter<DatumInfo> {
         return new InfoHolder(LayoutInflater.from(context).inflate(getLayoutId(), parent, false));
     }
 
-    public class InfoHolder extends RecViewHolder {
+    private class InfoHolder extends RecViewHolder<DatumInfo> {
         private final TextView item_name;
         private final TextView item_value;
 
-        public InfoHolder(View itemView) {
+        InfoHolder(View itemView) {
             super(itemView);
             item_name = (TextView) itemView.findViewById(R.id.item_name);
             item_value = (TextView) itemView.findViewById(R.id.item_value);

@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class AdapterHis extends BaseAdapter<DatumHis> {
-    public AdapterHis(Context context) {
+class AdapterHis extends BaseAdapter<DatumHis> {
+    AdapterHis(Context context) {
         super(context);
     }
 
@@ -22,11 +22,11 @@ public class AdapterHis extends BaseAdapter<DatumHis> {
         return new HisHolder(LayoutInflater.from(context).inflate(getLayoutId(), parent, false));
     }
 
-    public class HisHolder extends RecViewHolder implements View.OnClickListener {
+    private class HisHolder extends RecViewHolder<DatumHis> implements View.OnClickListener {
         private final TextView item_stamp;
 
 
-        public HisHolder(View itemView) {
+        HisHolder(View itemView) {
             super(itemView);
             item_stamp = (TextView) itemView.findViewById(R.id.item_stamp);
             itemView.setOnClickListener(this);

@@ -1,7 +1,7 @@
 package me.eagzzycsl.netquality;
 
 
-public interface AboutDb {
+interface AboutDb {
     String DB_NAME = "NetQuality";
     int DB_VERSION = 1;
 

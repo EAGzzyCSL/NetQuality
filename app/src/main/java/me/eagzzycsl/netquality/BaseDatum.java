@@ -1,4 +1,4 @@
 package me.eagzzycsl.netquality;
 
-public abstract  class BaseDatum {
+abstract class BaseDatum {
 }
